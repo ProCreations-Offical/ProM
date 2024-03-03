@@ -2,7 +2,7 @@ const fastify = require('fastify')();
 const fs = require('fs');
 const path = require('path');
 const Jimp = require('jimp'); // Using Jimp library
-
+const frame = "https://cdn.glitch.global/5d54f1e6-35d9-44f0-a734-53c477b5a9ba/unnamed.jpg?v=1709498791560"
 fastify.register(require('@fastify/multipart'));
 
 fastify.post('/upload-image', async (req, reply) => {
@@ -15,7 +15,7 @@ fastify.post('/upload-image', async (req, reply) => {
 
     // Read uploaded image and iPhone 15 pro frame
     const uploadedImage = await Jimp.read(data.file);
-    const frameImage = await Jimp.read(path.join(__dirname, 'https://i.ibb.co/6ryRyHL/unnamed.jpg'));
+    const frameImage = await Jimp.read(path.join(__dirname, frame));
 
     // Get image dimensions
     const uploadedWidth = uploadedImage.bitmap.width;

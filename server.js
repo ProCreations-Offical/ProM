@@ -9,9 +9,6 @@ fastify.post('/upload-image', async (req, reply) => {
   try {
     const data = await req.file();
 
-    if (!data.mimetype.startsWith('image/')) {
-      return reply.code(400).send('Invalid file type. Please upload an image.');
-    }
 
     // Read uploaded image and iPhone 15 pro frame
     const uploadedImage = await Jimp.read(data.file);
